@@ -1,3 +1,5 @@
+# this file is copy from [msig/signature](https://github.com/DominikPenk/mesh-signatures/blob/main/msig/signature.py)
+
 import math
 
 import numpy
