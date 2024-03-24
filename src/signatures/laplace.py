@@ -38,7 +38,6 @@ def laplacian_cotangens(mesh: trimesh.Trimesh):
         \ / \ /
          b   r
     """
-    n = len(mesh.vertices)
 
     ij = mesh.face_adjacency_edges # (#edges_shared, 2)
     ab = mesh.face_adjacency_unshared # (#edges_unshared, 2)
