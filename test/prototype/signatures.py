@@ -1,4 +1,4 @@
-# this file is copy from [msig/signature](https://github.com/DominikPenk/mesh-signatures/blob/main/msig/signature.py)
+# this file is revised from [msig/signature](https://github.com/DominikPenk/mesh-signatures/blob/main/msig/signature.py)
 
 import math
 
@@ -29,10 +29,10 @@ def hks(mesh: trimesh.Trimesh, n_basis: int, dim: int):
     t_max  = 4 * math.log(10) / values[1]
     times = numpy.geomspace(t_min, t_max, dim)
 
-    phi2       = numpy.square(vectors[:, 1:])
-    exp        = numpy.exp(-values[1:, None] * times[None])
-    s          = numpy.sum(phi2[..., None] * exp[None], axis=1)
+    phi2 = numpy.square(vectors[:, 1:])
+    exp = numpy.exp(-values[1:, None] * times[None])
+    s = numpy.sum(phi2[..., None] * exp[None], axis=1)
     heat_trace = numpy.sum(exp, axis=0)
-    s          = s / heat_trace[None]
+    s = s / heat_trace[None]
 
     return s
