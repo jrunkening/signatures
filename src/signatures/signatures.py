@@ -30,11 +30,12 @@ def hks(
     spectrum, modes = torch.lobpcg(laplacian_mesh, n_basis, mass_matrix) # (n_basis,), (#v, n_basis)
 
     if t_min is None:
-        t_min = 10 / spectrum[0]
+        t_min = torch.finfo(torch.float32).eps / spectrum.max()
     if t_max is None:
-        t_max = 10 / spectrum[-1]
+        t_max = torch.finfo(torch.float32).eps * 1e5 / spectrum.min()
 
-    times = torch.logspace(math.log10(t_min), math.log10(t_max), n_time_steps).to(device) # (n_time_steps,)
+    # times = torch.logspace(math.log10(t_min), math.log10(t_max), n_time_steps).to(device) # (n_time_steps,)
+    times = torch.linspace(t_min, t_max, n_time_steps).to(device) # (n_time_steps,)
 
     phi2 = torch.square(modes) # (#v, n_basis)
     exp = torch.exp(-spectrum[..., None] * times[None]) # (n_basis, 1) * (1, n_time_steps) -> (n_basis, n_time_steps)

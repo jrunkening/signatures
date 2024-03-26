@@ -20,4 +20,5 @@ class SignaturesTestCase(unittest.TestCase):
         torch.testing.assert_close(actual, expected)
 
     def test_hks(self):
-        signatures.hks(self.mesh, 10, 5)
+        signatures.heat_kernel_signatures(self.mesh, 10, 5)
+        signatures_proto.hks(self.mesh, 10, 5)
