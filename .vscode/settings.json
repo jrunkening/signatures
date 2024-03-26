@@ -2,12 +2,18 @@
     "cSpell.words": [
         "arange",
         "beltrami",
+        "cmap",
+        "coolwarm",
         "cotangens",
         "dtype",
         "eigsh",
+        "figsize",
         "geomspace",
         "hstack",
+        "keepdim",
         "linalg",
+        "lobpcg",
+        "logspace",
         "matvec",
         "msig",
         "spdiags",
@@ -15,6 +21,7 @@
         "tocsc",
         "todense",
         "trimesh",
+        "trisurf",
         "unsqueeze"
     ]
 }

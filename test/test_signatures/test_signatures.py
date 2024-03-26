@@ -1,7 +1,6 @@
 import unittest
 import trimesh
 import torch
-import numpy
 
 import prototype.signatures as signatures_proto
 
@@ -21,4 +20,4 @@ class SignaturesTestCase(unittest.TestCase):
         torch.testing.assert_close(actual, expected)
 
     def test_hks(self):
-        signatures_proto.hks(self.mesh, 10, 5)
+        signatures.hks(self.mesh, 10, 5)
